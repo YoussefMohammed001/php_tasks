@@ -1,33 +1,26 @@
 <?php
-$fruits1 = array('apple', 'banana', 'orange');
-$fruits2 = array('banana', 'grape', 'kiwi');
+$name = 'youssef';
+$phoneNumber = '01211829505';
+$address = 'future city';
+$id = 1;
 
-// Merge two arrays
-$mergedFruits = array_merge($fruits1, $fruits2);
-print_r($mergedFruits);
-echo '<br';
 
-// Check if an element exists in the array
-$searchItem = 'orange';
-if (in_array($searchItem, $mergedFruits)) {
-    echo "$searchItem exists in the array.\n";
-    echo '<br';
-
-} else {
-    echo "$searchItem does not exist in the array.\n";
-    echo '<br';
-
-}
-
-// Find the difference between two arrays
-$diff = array_diff($fruits1, $fruits2);
-print_r($diff);
-
-// Find the difference between two arrays with key-value comparison
-$fruits3 = array('apple' => 'red', 'banana' => 'yellow', 'orange' => 'orange');
-$fruits4 = array('banana' => 'yellow', 'grape' => 'purple', 'kiwi' => 'green');
-
-$diffAssoc = array_diff_assoc($fruits3, $fruits4);
-var_dump($diffAssoc);
-
+var_dump($name);
+print_r($name);
+echo "<br>";
+echo("name: $name <br> phone: $phoneNumber")
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<?= '<br>'. $address . '<br>' ?>
+
+</body>
+</html>
