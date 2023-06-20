@@ -8,22 +8,46 @@ if(isset($_POST['username1'])){
   $email = $_POST['email1'];
   $flag = 0;
   if(! empty($username)){
-    if(strlen($username) > 8){
-     if(preg_match('/senior$/',$username)){
-      $flag++;
-     } else {
-      $errors['usernameRegx'] = 'plz end text with senior';
-     }
-     } else{
-      $errors['userLenght'] = ">8";
-     }
+
+    $flag++;
     } else{
       $errors['username empty'] = 'plz write username';
     }
-    if($flag == 1){
+
+  if(! empty($passwrod)){
+    if(strlen($passwrod) >= 8){
+     } else{
+      $errors['passwordln'] = "pass must be >= 8";
+     }
+    } else{
+      $errors['password empty'] = 'plz write password';
+    }
+
+
+  if(!empty($email)){
+     if(preg_match('/.com$/',$email)){
+      $flag++;
+     } else {
+      $errors['emailRegx'] = 'plz end vaild email';
+     }
+    
+    } else{
+      $errors['email empty'] = 'plz write email';
+    }
+
+
+    if($flag == 2){
       foreach($users as $user){
         if($user['username'] == $username && $user['password'] == $passwrod){
-          header('location:index.php');
+         if($email == 'admin@admin.com' && $passwrod == '12345678'){
+          header('location:dashboard.php');
+
+         } else{
+          $loginUser = $username;
+          echo $loginUser . "test";
+          //header('location:index.php');
+       
+         }
         } 
       }
     }
@@ -67,6 +91,12 @@ if(isset($_POST['username1'])){
    <?php foreach($errors as $error): ?>
     <?=  $error; ?>
     <?php endforeach ?>
+
+    <label for="start">Start date:</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
    </form>
 
    </div> 
