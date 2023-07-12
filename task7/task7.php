@@ -7,6 +7,7 @@ SELECT job_id, COUNT(*) AS employee_count FROM employees GROUP BY job_id;
 
 3- how to calc your birthdate by years only 
 SELECT YEAR(NOW()) - YEAR(2001-11-30);
+SELECT YEAR(NOW()) - YEAR(birth_day);
 
 4- i need to know job_id of department_id that have commission_pct <> Null
 SELECT DISTINCT job_id FROM employees WHERE department_id IN ( SELECT department_id FROM employees WHERE commission_pct IS NOT NULL );
